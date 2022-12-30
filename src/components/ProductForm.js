@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../redux/ItemsSlice";
+import { addProduct, getProduct } from "../redux/ItemsSlice";
 
 const ProductForm = () => {
     const [prodTitle, setProdTitle] = useState("");
     const [prodDesc, setProdDesc] = useState("");
-    const [myid,setMyid] =useState(0);
+    const [myid, setMyid] = useState(0);
 
     const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const ProductForm = () => {
         e.preventDefault();
         dispatch(
             addProduct({
-                id:myid,
+                id: myid,
                 title: prodTitle,
                 description: prodDesc,
             })
@@ -80,11 +80,11 @@ const ProductForm = () => {
                                     >
                                         Cancel
                                     </button>
-                                    <button 
-                                    type="submit" 
-                                    className="btn btn-primary" 
-                                    data-bs-dismiss="modal"
-                                    onClick={()=>setMyid(myid+1)}
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary"
+                                        data-bs-dismiss="modal"
+                                        onClick={() => setMyid(myid + 1)}
                                     >
                                         Add Item
                                     </button>
